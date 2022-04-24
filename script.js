@@ -49,12 +49,16 @@ class Particle {
     }
 
     draw() {
-        // fill(0, 40);
-        // stroke(0, 40);
-        // ellipse(this.homeX, this.homeY, 5, 5);
-        // line(this.x, this.y, this.homeX, this.homeY);
-        // noStroke();
+        fill(0, 40);
+        stroke(0, 40);
+        ellipse(this.homeX, this.homeY, 5, 5);
+        line(this.x, this.y, this.homeX, this.homeY);
+        noStroke();
         fill(this.c)
         ellipse(this.x, this.y, 5, 5)
     }
 }
+
+
+
+
