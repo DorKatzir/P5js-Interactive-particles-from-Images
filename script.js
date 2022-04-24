@@ -1,17 +1,28 @@
-let p
+let particles = []
+let img
+function preload(){
+    img = loadImage('./img/logo.png')
+}
 
 function setup() {
     createCanvas(400, 400)
-    
-    p = new Particle(width/2, height/2, color(0))
+    placeParticles()
 }
 
 function draw() {
-    background(220)
-    p.update()
-    p.draw()
+    background(20)
+
+    for(let i = 0; i < particles.length; i++){
+        particles[i].update()
+        particles[i].draw()
+    }
+
+    image(img, width/2 - img.width/2, height/2 - img.height, img.width, img.height)
 }
 
+function placeParticles(){
+
+}
 
 
 class Particle {
