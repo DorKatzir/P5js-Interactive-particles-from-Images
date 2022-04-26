@@ -1,4 +1,4 @@
-p5.disableFriendlyErrors = true // disables FES
+// p5.disableFriendlyErrors = true // disables FES
 
 let particles = []
 let res = 3.5
@@ -6,7 +6,7 @@ let img
 
 function preload() {
     //img = loadImage('./img/avatar.png', dror)
-    img = loadImage('./img/dror.png', dror)
+    img = loadImage('./img/drorK.png', dror)
 }
 function dror() {
     img.resize(250, 250)
@@ -95,8 +95,7 @@ class Particle {
 }
 
 window.addEventListener('resize', () => {
-    canvas.width = innerWidth
-    canvas.height = innerHeight
-    //console.log("window resized")
-    setup()
+    width = innerWidth
+    height = innerHeight
+   //console.log("window resized")
 })
