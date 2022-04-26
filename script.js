@@ -1,7 +1,7 @@
 // p5.disableFriendlyErrors = true // disables FES
 
 let particles = []
-let res = 3
+let res = 2
 let img
 
 function preload() {
@@ -12,6 +12,8 @@ function preload() {
 function setup() {
     // ellipseMode(CENTER)
     // imageMode(CENTER)
+    imageSmoothingEnabled = true
+    img.drawingContext.imageSmoothingQuality = 'high'
     createCanvas(img.width, img.height)
     placeParticles()
     noStroke()
@@ -65,8 +67,8 @@ class Particle {
         let homeA = atan2(this.homeY - this.y, this.homeX - this.x)
 
         // forces
-        let mouseF = constrain(map(mouseD, 0, 100, 30, 0), 0, 30)
-        let homeF = map(homeD, 0, 100, 0, 30)
+        let mouseF = constrain(map(mouseD, 0, 200, 30, 0), 0, 30)
+        let homeF = map(homeD, 0, 200, 0, 30)
 
         let vx = cos(mouseA) * mouseF
         vx += cos(homeA) * homeF
