@@ -1,24 +1,21 @@
 // p5.disableFriendlyErrors = true // disables FES
 
 let particles = []
-let res = 3.5
+let res = 3
 let img
 
 function preload() {
     //img = loadImage('./img/avatar.png', dror)
-    img = loadImage('./img/drorK.png', dror)
-}
-function dror() {
-    img.resize(250, 250)
-    // console.log('dror image loaded')
+    img = loadImage('./img/drorK.png')
 }
 
 function setup() {
     // ellipseMode(CENTER)
     // imageMode(CENTER)
-    createCanvas(350, 350)
+    createCanvas(img.width, img.height)
     placeParticles()
     noStroke()
+    console.log(img.drawingContext.imageSmoothingQuality)
 }
 
 function draw() {
@@ -31,8 +28,7 @@ function draw() {
 }
 
 function placeParticles() {
-    let dkX = (canvas.width - img.width)/2
-    let dkY = (canvas.height - img.height)/2
+
     for (let i = 0; i < img.width; i += res) {
         for (let j = 0; j < img.height; j += res) {
             let x = i
@@ -41,7 +37,7 @@ function placeParticles() {
             // let y = (j / height) * img.height
             let c = img.get(x, y)
             if (c[3] !== 0) {
-                particles.push(new Particle(i+dkX, j+dkY, c))
+                particles.push(new Particle(i, j, c))
             }
         }
     }
