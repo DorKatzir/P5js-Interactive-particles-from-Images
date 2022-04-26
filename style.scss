@@ -5,8 +5,10 @@
 }
 body{
     background-color: hsl(0, 0%, 5%);
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    align-items: center;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+.p5Canvas{
+    border: 1px solid black;
 }

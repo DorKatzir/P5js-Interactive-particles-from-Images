@@ -14,8 +14,8 @@ function dror() {
 }
 
 function setup() {
-    ellipseMode(CENTER)
-    imageMode(CENTER)
+    // ellipseMode(CENTER)
+    // imageMode(CENTER)
     createCanvas(350, 350)
     placeParticles()
     noStroke()
@@ -93,3 +93,10 @@ class Particle {
         ellipse(this.x, this.y, res, res)
     }
 }
+
+window.addEventListener('resize', () => {
+    canvas.width = innerWidth
+    canvas.height = innerHeight
+    //console.log("window resized")
+    setup()
+})
