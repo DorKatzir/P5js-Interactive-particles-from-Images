@@ -48,13 +48,13 @@ function placeParticles() {
 
 class Particle {
     constructor(x, y, c) {
-        this.x = x + (canvas.width / 2) * .5
-        this.y = y + (canvas.height / 2) * 0.5
+        this.x = x + 120
+        this.y = y + 120
 
         this.c = c
 
-        this.homeX = this.x 
-        this.homeY = this.y 
+        this.homeX = x + 120
+        this.homeY = y + 120
     }
 
     update() {
@@ -86,9 +86,3 @@ class Particle {
         ellipse(this.x, this.y, res, res)
     }
 }
-
-window.addEventListener('resize', () => {
-    width = innerWidth
-    height = innerHeight
-   //console.log("window resized")
-})
