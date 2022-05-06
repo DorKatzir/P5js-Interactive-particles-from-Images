@@ -12,9 +12,12 @@ function preload() {
 function setup() {
     // ellipseMode(CENTER)
     // imageMode(CENTER)
+
     imageSmoothingEnabled = true
     img.drawingContext.imageSmoothingQuality = 'high'
-    createCanvas(img.width, img.height)
+    createCanvas(400, 400)
+    console.log(img)
+
     placeParticles()
     noStroke()
     console.log("dror test")
@@ -35,11 +38,9 @@ function placeParticles() {
         for (let j = 0; j < img.height; j += res) {
             let x = i
             let y = j
-            // let x = (i / width) * img.width
-            // let y = (j / height) * img.height
             let c = img.get(x, y)
             if (c[3] !== 0) {
-                particles.push(new Particle(i, j, c))
+                particles.push(new Particle(x, y, c))
             }
         }
     }
@@ -47,13 +48,13 @@ function placeParticles() {
 
 class Particle {
     constructor(x, y, c) {
-        this.x = x 
-        this.y = y 
+        this.x = x + (canvas.width / 2) * .5
+        this.y = y + (canvas.height / 2) * 0.5
 
         this.c = c
 
-        this.homeX = x
-        this.homeY = y
+        this.homeX = this.x 
+        this.homeY = this.y 
     }
 
     update() {
@@ -67,8 +68,8 @@ class Particle {
         let homeA = atan2(this.homeY - this.y, this.homeX - this.x)
 
         // forces
-        let mouseF = constrain(map(mouseD, 0, 100, 30, 0), 0, 30)
-        let homeF = map(homeD, 0, 100, 0, 30)
+        let mouseF = constrain(map(mouseD, 0, 80, 50, 0), 0, 50)
+        let homeF = map(homeD, 0, 80, 0, 50)
 
         let vx = cos(mouseA) * mouseF
         vx += cos(homeA) * homeF
@@ -81,13 +82,7 @@ class Particle {
     }
 
     draw() {
-        // fill(0, 40);
-        // stroke(0, 40);
-        // ellipse(this.homeX, this.homeY, 5, 5);
-        // line(this.x, this.y, this.homeX, this.homeY);
-
         fill(this.c)
-        //ellipse(this.x + (width - img.width)/2, this.y + (height - img.height)/2, res, res)
         ellipse(this.x, this.y, res, res)
     }
 }

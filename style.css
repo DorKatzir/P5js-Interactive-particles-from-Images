@@ -7,12 +7,11 @@
 body {
   background-color: hsl(0deg, 0%, 5%);
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .p5Canvas {
   border: 1px solid rgba(243, 17, 162, 0.25);
-}
-
-canvas {
-  position: absolute !important;
 }/*# sourceMappingURL=style.css.map */
